@@ -70,6 +70,8 @@ This is how you would use the platform:
 - use mobile first principles
 - Create Logo with [Logojoy](https://www.logojoy.com/)
 
+## My Notes
+
 3/22
 
 - Initialize project
@@ -80,3 +82,14 @@ This is how you would use the platform:
 - add `--format documentation` in order to see a description of the test as it's running instead of just a dot
 - My domain model is User, Topic, and Insight
 - Generate all models and add relationship
+- Add tests for validations and associations
+- Test that bcrypt is working and also research implementing oauth
+- For bcrypt just comment in the bcrypt gem, bundle,  and add `has_secure_password` to `User` model
+- https://semaphoreci.com/community/tutorials/how-to-test-rails-models-with-rspec
+- https://github.com/rspec/rspec-rails
+- Writing the tests for the associations, I realized that I forgot the foreign keys for all the models. I will now run a migration to add the columns for user_id in the topics table and a topic_id in the insights table
+- I want to write migrations that will generate the column name I will refer to the documentation:
+- http://guides.rubyonrails.org/active_record_migrations.html#creating-a-standalone-migration
+- In order to generate the migration with the add_column command inside the change method, we need to name the file: `Add<column_name>To<table_name>` and add the name and type of the column as an argument. In my case the command looked like this: `rails g migration AddTopicIdToInsights topic_id:integer`
+- run migrations and then run tests
+- I finished the validation tests for presence, now I need to add tests for associations
