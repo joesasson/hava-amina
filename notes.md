@@ -93,3 +93,6 @@ This is how you would use the platform:
 - In order to generate the migration with the add_column command inside the change method, we need to name the file: `Add<column_name>To<table_name>` and add the name and type of the column as an argument. In my case the command looked like this: `rails g migration AddTopicIdToInsights topic_id:integer`
 - run migrations and then run tests
 - I finished the validation tests for presence, now I need to add tests for associations
+- I'm gonna refactor the tests to use [FactoryGirl Rails](https://github.com/thoughtbot/factory_girl_rails) instead of making models by hand
+- So essentially what it does is allow you to store an instance of the model that you want to test with added benefits like incrementing the number automatically if I need it
+- All you need to do is add the gem (and bundle) and create a factory template in the factories directory and then `build` it in your spec file

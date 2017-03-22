@@ -3,7 +3,7 @@ require 'rails_helper'
 describe User, type: :model do
 
   it "is valid with email and password" do
-    john = User.create(email: "example@example.com", password: '1234')
+    john = FactoryGirl.build(:user)
     expect(john).to be_valid
   end
 
