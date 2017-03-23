@@ -96,3 +96,8 @@ This is how you would use the platform:
 - I'm gonna refactor the tests to use [FactoryGirl Rails](https://github.com/thoughtbot/factory_girl_rails) instead of making models by hand
 - So essentially what it does is allow you to store an instance of the model that you want to test with added benefits like incrementing the number automatically if I need it
 - All you need to do is add the gem (and bundle) and create a factory template in the factories directory and then `build` it in your spec file
+- In order to imply the `FactoryGirl` when running FactoryGirl commands, we can set a custom config in `rails_helper`
+- Just add `config.include FactoryGirl::Syntax::Methods` inside the `Rspec.configure` block
+
+
+3/23
