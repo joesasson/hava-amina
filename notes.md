@@ -101,3 +101,87 @@ This is how you would use the platform:
 
 
 3/23
+
+- Today I'm going to be implementing authentication with OAuth2
+- https://www.sitepoint.com/rails-authentication-oauth-2-0-omniauth/
+- https://github.com/doorkeeper-gem/doorkeeper
+- https://www.sitepoint.com/getting-started-with-doorkeeper-and-oauth-2-0/
+- https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2
+- 4 Roles to the Oauth process
+- Resource Owner - which is the User of the App
+- Client - which is the app itself that is requesting credentials from the Authorization API
+- ~~Resource / Authorization Server - Holds credentials of User - this is the API~~
+- Resource Server - Holds Credentials of User's Account
+- Authorization Server - Verifies identity of User before giving access to User's credentials
+- The two servers together are referred to as the API
+- There is a 6 step process to the authorization:
+
+
+  1. App requests permission from User to access Authorization Server
+  2. User authorizes request and sends back an authorization grant
+  3. App requests an access token from the Authorization Server by presenting authentication of it's own identity and the user's grant
+  4. The authorization server sends back an access token
+  5. App sends the access token to the resource server and requests data
+  6. Resource Server sends back data
+
+  ![Oauth Process](https://assets.digitalocean.com/articles/oauth/abstract_flow.png)  
+
+- I'm still not finished that article, but it looks like the rest is not specific to rails
+- That's the basic idea, but what about implementing it myself
+- Am I going to run into problems by not having an SSL before deploying?
+- Which components do I need to add to my app?
+- Should I rely on Oauth completely or use it together with devise?
+- https://www.sitepoint.com/rails-authentication-oauth-2-0-omniauth/
+- https://oauth.net/2/
+- It looks like I need to register my app before I can send any requests to the API, does that mean I need to deploy the app in order for it to work?
+- Another important point is that the user only authorizes the API for certain permissions in some cases it's reading the credentials, in others it's changing something in the user's account
+- All I care about is the User's name and email
+- Now I'm going to create a new dummy project to practice Oauth for
+- Add Bootstrap with sass you have to remove the require statements from the `application.css` and change it to `.scss` in order to use sass bootstrap
+- I followed the instruction [here](https://github.com/twbs/bootstrap-sass) to make it work
+- Add `gem 'omniauth-twitter'` and `bundle`
+- A strategy is a service that provides an API for OAuth like Twitter
+- I need to add a configuration option in the initializers
+- Create a new file called `omniauth.rb`
+- Add this to the config file:
+```ruby
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :twitter, ENV['TWITTER_KEY'], ENV['TWITTER_SECRET']
+end
+```
+- Navigate to apps.twitter.com
+- Create New App
+- Fill out the form using a unique app name (web url doesn't matter but needs to be valid)
+- callback goes to `localhost:3000/auth/twitter/callback`
+- In order to store the keys, I edited my .bash_profile to `export` the variable definitions of the key and secret and the config will access my local `ENV` in order to set those keys - [article](http://railsapps.github.io/rails-environment-variables.html)
+- Now that Twitter has our app registered and is waiting for requests, we need to set up the next step in the process which is the callback
+- Callback always is `auth/:provider/callback`
+- Therefore we can set up a route for exactly that route in `routes.rb`
+- We can now add a link in the menu pointing to the Twitter API - `'/auth/twitter'`
+- Wow! It works! But HOW?
+- User clicks a link that point to `host/auth/twitter`
+- Somehow my app knows that it should redirect to twitter for the authorization page
+- Twitter completes the authentication and redirects to the callback URL which I did not set up yet
+- Add the Sessions Controller and `#create` action
+- Inside the `#create` action we want to render the authentication hash to yaml
+- It doesn't work for some reason and it gives me a missing template error
+- If I just render the `request.env['omniauth.auth']` object as json, then it renders out properly
+- I get back all my twitter account info including things like followers and following(called friends_count lol)
+- We want to save the data in our app somewhere
+- We want the name of the service and the user's UID and the user's full name, location, avatar, profile URL
+- Generate User model to store this information with fields for each item
+- `rails g model User provider uid name location image_url url`
+- provider and uid cannot be null
+- I need to add an index to provider and uid
+- What's an index in SQL and why is it important?
+- http://stackoverflow.com/questions/2955459/what-is-an-index-in-sql
+- http://www.programmerinterview.com/index.php/database-sql/what-is-an-index/
+- Essentially a database index is like a phone book index
+- In a phone book the names are all split up based on a letter in the alphabet, then if you need to search for a name, you can first look for that letter then look for the name within that letter
+- without an index, you would have to look through the entire phone book for a single name!
+- The way it works in a db is that we have a data structure like a binary tree that we can search for a certain index and then search in that index for an exact match of what we need
+- A binary tree is just a structure that has two nodes under every node
+- Apparently the index calls were causing the migration to fail so I had to remove them and now it works fine
+- Back to the SessionsController, fill in the create method to be set from ominauth with the `from_omniauth` method which we will define
+- Add a success and error flash for each one
+- `from_omniauth` is a class method of `User` that will find_or_create by uid
