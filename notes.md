@@ -418,3 +418,16 @@ Random Break:
 
 - I'm going to take care of the devise requirements first
 - I need to make a site controller anyways to hold the landing page
+
+4/3
+
+- Create a SiteController with an index action
+- set root to  site#index
+- I added an extra Controller to the generate statement
+
+4/4
+
+- Finish up the devise setup and make an index view
+- make sure the protect_from_forgery has a `prepend: true` added to it
+- Add coverage reporting with [SimpleCov](https://github.com/colszowka/simplecov)
+- Just add the gem, bundle and add the two initializing lines to the top of `spec_helper`
