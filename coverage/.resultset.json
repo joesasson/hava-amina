@@ -1,10 +1,10 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/Joey/dev/immersive/projects/hava-amina/spec/controllers/site_controller_spec.rb": [
+      "/Users/Joey/dev/immersive/projects/hava-amina/spec/controllers/sessions_controller_spec.rb": [
         1,
         null,
-        1,
+        0,
         null,
         null
       ],
@@ -37,16 +37,14 @@
         null,
         1,
         null,
-        1,
+        0,
         null,
-        1,
-        null,
-        null,
+        0,
         null,
         null,
-        1,
         null,
         null,
+        0,
         null,
         null,
         null,
@@ -59,10 +57,12 @@
         null,
         null,
         null,
-        1,
         null,
         null,
-        1,
+        0,
+        null,
+        null,
+        0,
         null,
         null,
         null
@@ -446,7 +446,10 @@
         null,
         null,
         null,
-        null,
+        1,
+        1,
+        1,
+        1,
         null,
         null,
         null,
@@ -531,14 +534,14 @@
         1,
         1,
         1,
-        2,
+        1,
         null,
         null
       ],
       "/Users/Joey/dev/immersive/projects/hava-amina/spec/factories/users.rb": [
         1,
         1,
-        9,
+        1,
         1,
         null,
         null
@@ -567,145 +570,15 @@
         1,
         null
       ],
+      "/Users/Joey/dev/immersive/projects/hava-amina/app/helpers/sessions_helper.rb": [
+        1,
+        null
+      ],
       "/Users/Joey/dev/immersive/projects/hava-amina/app/helpers/site_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/Joey/dev/immersive/projects/hava-amina/app/controllers/site_controller.rb": [
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/Joey/dev/immersive/projects/hava-amina/app/controllers/application_controller.rb": [
-        1,
-        1,
-        null
-      ],
-      "/Users/Joey/dev/immersive/projects/hava-amina/spec/helpers/site_helper_spec.rb": [
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        1,
-        null
-      ],
-      "/Users/Joey/dev/immersive/projects/hava-amina/spec/models/identity_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        null
-      ],
-      "/Users/Joey/dev/immersive/projects/hava-amina/spec/models/insight_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/Joey/dev/immersive/projects/hava-amina/app/models/insight.rb": [
-        1,
-        1,
-        1,
-        null
-      ],
-      "/Users/Joey/dev/immersive/projects/hava-amina/spec/models/topic_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/Users/Joey/dev/immersive/projects/hava-amina/app/models/topic.rb": [
-        1,
-        1,
-        1,
-        1,
-        null
-      ],
-      "/Users/Joey/dev/immersive/projects/hava-amina/spec/models/user_spec.rb": [
-        1,
-        null,
-        1,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null
-      ],
-      "/Users/Joey/dev/immersive/projects/hava-amina/app/models/user.rb": [
-        1,
-        1,
-        1,
         1,
         null
       ]
     },
-    "timestamp": 1491314205
+    "timestamp": 1491315674
   }
 }

@@ -345,7 +345,7 @@ Random Break:
 - remove the provider and uid columns from the user
 - Add a create and find by omniauth method to the Identity
 - Add a create with omniauth method to User
-- The user will hold the email address and that will be the uniue identifier, if a user logs in with different email addresses, it will considered a new user
+- The user will hold the email address and that will be the unique identifier, if a user logs in with different email addresses, it will considered a new user
 - I can take for granted that the omniauth is going to do what it's going to do so all I need to do is react to the auth_hash data
 - So I think I want to keep the session set to the user id and now the identity id, but how will a user log in?
 - If there is no user/identity
@@ -397,9 +397,9 @@ Random Break:
 - Add pry-rails gem
 - Change models
   - Add Identity Model and add devise to it
-  - Add devise methods to Identity model (NOW)
+  - Add devise methods to Identity model
 - Create sessions controller
-- Add the omniauthable option to devise config
+- Add the omniauthable option to devise config (NOW)
 - Add routes for identity and logout
 - Define from_omniauth methods (copypasta)
 - Add a login page that has a link to each strategy
@@ -431,3 +431,17 @@ Random Break:
 - make sure the protect_from_forgery has a `prepend: true` added to it
 - Add coverage reporting with [SimpleCov](https://github.com/colszowka/simplecov)
 - Just add the gem, bundle and add the two initializing lines to the top of `spec_helper`
+- Add each strategy to devise initializer
+- App is breaking with `/Users/Joey/.rvm/gems/ruby-2.3.1/gems/devise-4.2.1/lib/devise/omniauth/config.rb:40:in `autoload_strategy': Could not find a strategy with name `Google'.`
+- [Documentation for the gem](https://github.com/zquestz/omniauth-google-oauth2) says to use `:google_oauth2` as the provider
+- I already had the `provider/uid` columns in my identities table
+- The first part of the process is working devise is creating the paths and twitter is redirecting, but there is no callbacks controller
+- For now I'm just going to render the response, then I'll work it into a sessions controller
+- I need to add the controller argument to the devise route in the `routes.rb` file
+- It looks like it's totally working but only the part that sends back the auth_hash
+- I had to add a `name: :google` to the config of the google omniauth because it was being called `google_omniauth2` which was breaking things
+- Now I want to configure what happens on the callback
+- So the problem I'm having now is that my User model requires a password to be passed in, I think I should just remove that column and I'll be okay or just make it not required
+- So what if I just get rid of `has_secure_password`, that should remove the validation that bcrypt adds to the model
+- Now I'm trying to make a User model that has many Identities and use devise to manage it
+- Now I have a User which has many identities and the user is done by unique email addresses and the identities are stored by provider/uid combos
