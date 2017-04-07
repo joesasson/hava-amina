@@ -1,0 +1,7 @@
+<h3>Topics: </h3>
+<ul>
+  <% @topics.each do |topic| %>
+    <li><%= link_to topic.name, user_topic_path(current_user, topic.id) %></li>
+  <% end %>
+</ul>
+<%= link_to 'Add Topic', new_user_topic_path(current_user) %>

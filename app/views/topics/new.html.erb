@@ -1,0 +1,6 @@
+<%= form_for([current_user, @topic]) do |f| %>
+  <%= render "shared/errors", object: @topic %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>

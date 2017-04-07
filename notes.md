@@ -445,3 +445,77 @@ Random Break:
 - So what if I just get rid of `has_secure_password`, that should remove the validation that bcrypt adds to the model
 - Now I'm trying to make a User model that has many Identities and use devise to manage it
 - Now I have a User which has many identities and the user is done by unique email addresses and the identities are stored by provider/uid combos
+
+4/5
+
+- I just want to make sure the authentication is going to do what I want it to do, then I can go on
+- Front Page has a description of the app and login buttons. Let me just do github for now.
+- I should also let a user login manually if they want
+- The Identities thing was a big waste of time
+- That is a valuable mistake to learn from
+- Or I can do what the side app did
+- Most of the work is done already I should just have the User handle all of it and get rid of the Identities concept altogether and let the edge cases happen
+- Let me reverse the last few migration from right before I added devise and I'll just add devise into the User model and I'll leave out the Identities
+- I just deleted the Identities model, it took a bunch of destroy command from rails and I had to delete the schema in order for the Identities table to not be generated, I can always generate it again later
+- Now I just want to add Devise to the User model
+- Let me take a look at the Devise initializer that's the part that I really don't understand that well
+- So I have all the devise default modules plus omniauthable
+- I also removed the email column from the migration because it was already there
+- Now I want to make a basic login with email and also a login with github
+- So an index page and a login page for now
+- Index page is done with links to login and signup paths
+- Right now the paths point to Devise views which are not actually working and which I want to customize
+- So learning Devise is a great investment of my time because knowing it will make me so much faster when I need to add authentication to any app
+- It looks like Devise is not even using my custom template, it's just using the generic one and that one says `resource_name` when it should be `user_name`
+- I'm gonna try to generate the controllers
+- It looks like by default the routes are configure to point to the devise controllers which are not configurable really, I should be able to get them to work, but I just want to move forward so I'm going to point the login and signup to the users controller
+- Okay now the routes are right but the forms themselves have an error
+- For some reason the default controllers didn't work, so I'm gonna roll back all the migrations and try again
+- Hmm so that worked for some reason, maybe it was because I generated the devise with `User` as the model argument
+- I'll take care of the github omniauth later, I just want to get the MVP there
+- The next step is to create CRUD for topics and insights
+- Start with topics, let me make routes, controllers and views
+- Each topic belongs to a user so I would have to nest the route for them
+- I probably want to slugify the topic and leave the insight as a number
+- How would I handle the nested resource of topics under the Users if it's being handled by devise?
+- [SO question](https://stackoverflow.com/questions/27712947/nested-resources-in-devise)
+- My app was breaking when I tried to seed it with a new user or access the user from the console
+- It was giving me an error of
+```
+ArgumentError: wrong number of arguments (given 0, expected 1)
+/Users/Joey/.rvm/gems/ruby-2.3.0/gems/devise-4.2.1/lib/devise/models/database_authenticatable.rb:157:in `password_digest'
+```
+- [Another question](https://stackoverflow.com/questions/12715627/devise-and-rails-argumenterror-in-deviseregistrationscontrollercreate)
+- So it looks like because I used bcrypt and the `has_secure_password` macro in my user model before, it is somehow interfering now
+- I checked the `User` model and `has_secure_password` is commented out
+- I have the answer, I had to remove the password_digest column from the migration file and also remove it from the schema, because I was doing `db:reset`
+- Now I want to try to make a controller that will display a list of topics for a user
+- I need to find out how to get the `current_user` method to work
+
+5/6
+
+- For now, all I want to do is display the topics nested by user
+- So in the index controller I just want to get the user by param and then get all the topics for that user
+- Right. topics are displaying
+- Now I need to make a way to add a new topic from the index page
+- so I need to use the `form_for` to generate a form that `POST`s to `user_topic_path` in order to create a new topic for a user
+
+
+5/7
+
+- Okay new topics are being created!
+- Next I need to allow insights to be created for each topic
+- I don't have to make a new route for the Insights, they can just be displayed in the topics show page
+- I'll allow a user to add new `Insight`s and remove insights and topics
+- I also need to make sure that the user is authorized by checking the params against the `current_user` id
+- So I added the authorization code and it seems to be working fine, I should keep an eye out for bugs
+- I should add a nav bar to the layout so that it's not impossible to get to the topics section
+- Nav bar is done basically (without styling)
+- Now I need to add the insights to the topic show view, then the whole basic app is done
+- Then I'll all the other CRUD actions to each thing topics and insights
+- There's something that I need to think about - What id should the topics and insights
+- Obviously they need to have a master id that is incremented, but for routing purposes
+- I should have a top level route for certain things and then make role based rendering
+- Worry about it later when it becomes a problem
+- I should commit right after I make the topic view work
+- 
