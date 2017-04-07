@@ -543,4 +543,10 @@ We would get `users/:user_id/accounts`
 
 - That is not going to help me because I still want the user to be in route
 - Now I have a problem that if the `user_id` is not in the route then the authenticate method will always fail
-- 
+- I need to make an Insight controller to handle the create and update actions at least
+- Now I basically have the whole thing working, but I still have a couple of problems
+- First of all, I want the topic to be authorizable which means that a user other than the user id that it belongs to cannot edit it or add things to it
+- I can change the authorization to check in the topic object and see if the current_user is equal
+- Authorization worked for the topics
+- One thing to note is that I had a double render error because of the redirect let me see if I can make it into it's own method and maybe that will work
+- I'm still getting a double redirect error, so it doesn't make a difference
