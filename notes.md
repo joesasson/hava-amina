@@ -550,3 +550,5 @@ We would get `users/:user_id/accounts`
 - Authorization worked for the topics
 - One thing to note is that I had a double render error because of the redirect let me see if I can make it into it's own method and maybe that will work
 - I'm still getting a double redirect error, so it doesn't make a difference
+- This is just to test my new alias
+- Another minor change
