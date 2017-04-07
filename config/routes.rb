@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   root to: 'site#index'
 
   resources :users do
-    resources :topics
+    resources :topics, shallow: true
   end
+
+  resources :topics do
+    resources :insights, only: [:create, :update]
+  end
+
 end

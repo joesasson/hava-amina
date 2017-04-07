@@ -518,4 +518,29 @@ ArgumentError: wrong number of arguments (given 0, expected 1)
 - I should have a top level route for certain things and then make role based rendering
 - Worry about it later when it becomes a problem
 - I should commit right after I make the topic view work
+- Now there should be an ability to add insights to the topic
+- In place form and addition like before is an option
+- How would I add the insight to the topic
+- If I create an entire new controller, then I have to use nested routes, or maybe not.
+- What's the difference between a namespace and a nested route?
+- Basically they do the same thing, they nest a resources route within another route, but using namespace, it is all one route
+- For example if we said:
+```ruby
+namespace :users do
+  resources :accounts
+end
+```
+We would get `/users/accounts`
+But if we did:
+```ruby
+resources :users do
+  resources :accounts
+end
+```
+We would get `users/:user_id/accounts`
+
+- So by using namespaces we eliminate one of the ids that have to be passed in
+
+- That is not going to help me because I still want the user to be in route
+- Now I have a problem that if the `user_id` is not in the route then the authenticate method will always fail
 - 

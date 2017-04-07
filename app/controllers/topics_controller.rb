@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new, :create]
 
   def index
     @topics = current_user.topics
@@ -21,6 +21,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
+    @insight = Insight.new
   end
 
   private

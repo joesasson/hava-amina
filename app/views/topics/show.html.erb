@@ -4,3 +4,8 @@
     <li><%= insight.text %></li>
   <% end %>
 </ul>
+<%= form_for [@topic, @insight] do |f| %>
+  <%= render "shared/errors", object: @insight %>
+  <%= f.text_field :text %>
+  <%= f.submit %>
+<% end %>
