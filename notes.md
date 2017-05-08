@@ -552,3 +552,13 @@ We would get `users/:user_id/accounts`
 - I'm still getting a double redirect error, so it doesn't make a difference
 - This is just to test my new alias
 - Another minor change
+- Sweet so I can now push all my changes without typing in three different commands
+- The basic functionality is done
+- Users can make topics and add insights to them
+- Now I just need to make it look decent and start adding features one by one
+- I want to rethink the domain model, what if it is really a problem instead of an insight
+- Nope keep it as is
+- I should start using it myself and seeing what I can benefit out of it
+- Pick something new that I want to learn and start adding insights
+- First I want to style it with materialize and make it look usable
+-

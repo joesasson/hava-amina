@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/Joey/dev/immersive/projects/hava-amina/spec/controllers/omniauth_callbacks_controller_spec.rb": [
+      "/Users/Joey/dev/immersive/projects/hava-amina/spec/controllers/insights_controller_spec.rb": [
         1,
         null,
         1,
@@ -522,14 +522,6 @@
         1,
         1,
         1,
-        2,
-        null,
-        null
-      ],
-      "/Users/Joey/dev/immersive/projects/hava-amina/spec/factories/users.rb": [
-        1,
-        1,
-        9,
         1,
         null,
         null
@@ -539,6 +531,15 @@
         1,
         null,
         1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
         null
       ],
       "/Users/Joey/dev/immersive/projects/hava-amina/app/models/user.rb": [
@@ -546,7 +547,6 @@
         null,
         null,
         1,
-        null,
         null,
         1,
         1,
@@ -561,6 +561,10 @@
         1,
         null
       ],
+      "/Users/Joey/dev/immersive/projects/hava-amina/app/helpers/insights_helper.rb": [
+        1,
+        null
+      ],
       "/Users/Joey/dev/immersive/projects/hava-amina/app/helpers/omniauth_callbacks_helper.rb": [
         1,
         null
@@ -571,6 +575,55 @@
       ],
       "/Users/Joey/dev/immersive/projects/hava-amina/app/helpers/site_helper.rb": [
         1,
+        null
+      ],
+      "/Users/Joey/dev/immersive/projects/hava-amina/app/helpers/topics_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/Joey/dev/immersive/projects/hava-amina/app/controllers/insights_controller.rb": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null
+      ],
+      "/Users/Joey/dev/immersive/projects/hava-amina/app/controllers/application_controller.rb": [
+        1,
+        1,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/Users/Joey/dev/immersive/projects/hava-amina/spec/controllers/omniauth_callbacks_controller_spec.rb": [
+        1,
+        null,
+        1,
+        null,
         null
       ],
       "/Users/Joey/dev/immersive/projects/hava-amina/app/controllers/omniauth_callbacks_controller.rb": [
@@ -590,11 +643,6 @@
         null,
         null,
         null,
-        null
-      ],
-      "/Users/Joey/dev/immersive/projects/hava-amina/app/controllers/application_controller.rb": [
-        1,
-        1,
         null
       ],
       "/Users/Joey/dev/immersive/projects/hava-amina/spec/controllers/sessions_controller_spec.rb": [
@@ -619,6 +667,64 @@
         1,
         1,
         null,
+        null
+      ],
+      "/Users/Joey/dev/immersive/projects/hava-amina/spec/controllers/topics_controller_spec.rb": [
+        1,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/Users/Joey/dev/immersive/projects/hava-amina/app/controllers/topics_controller.rb": [
+        1,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null
+      ],
+      "/Users/Joey/dev/immersive/projects/hava-amina/spec/helpers/insights_helper_spec.rb": [
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
         null
       ],
       "/Users/Joey/dev/immersive/projects/hava-amina/spec/helpers/omniauth_callbacks_helper_spec.rb": [
@@ -672,22 +778,39 @@
         1,
         null
       ],
+      "/Users/Joey/dev/immersive/projects/hava-amina/spec/helpers/topics_helper_spec.rb": [
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null
+      ],
       "/Users/Joey/dev/immersive/projects/hava-amina/spec/models/insight_spec.rb": [
         1,
         null,
         1,
         1,
         1,
-        1,
-        1,
-        1,
+        0,
+        0,
+        0,
         null,
         null,
         1,
         1,
-        1,
-        1,
-        1,
+        0,
+        0,
+        0,
         null,
         null
       ],
@@ -703,15 +826,15 @@
         1,
         1,
         1,
-        1,
-        1,
+        0,
+        0,
         null,
         null,
         1,
         1,
-        1,
-        1,
-        1,
+        0,
+        0,
+        0,
         null,
         null
       ],
@@ -721,50 +844,8 @@
         1,
         1,
         null
-      ],
-      "/Users/Joey/dev/immersive/projects/hava-amina/spec/models/user_spec.rb": [
-        1,
-        null,
-        1,
-        null,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        null
       ]
     },
-    "timestamp": 1491419894
+    "timestamp": 1494204678
   }
 }
